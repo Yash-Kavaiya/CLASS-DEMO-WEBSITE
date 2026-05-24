@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products – SportZone</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <i class="fas fa-running"></i> SportZone
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html" class="active">Products</a>
+        <a href="cart.html">
+          <i class="fas fa-shopping-cart"></i>
+          Cart <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+      </div>
+      <div class="nav-search">
+        <input type="text" id="navSearch" placeholder="Search products..." />
+        <button onclick="handleNavSearch()"><i class="fas fa-search"></i></button>
+      </div>
+      <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart <span class="cart-badge" id="cartBadgeMobile">0</span></a>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h1>All Products</h1>
+    <p>Find the perfect gear for your sport</p>
+  </div>
+
+  <div class="products-page-layout">
+
+    <!-- ─── SIDEBAR FILTERS ─── -->
+    <aside class="filters-sidebar">
+      <div class="filter-header">
+        <h3><i class="fas fa-filter"></i> Filters</h3>
+        <button class="clear-filters-btn" onclick="clearFilters()">Clear All</button>
+      </div>
+
+      <div class="filter-group">
+        <h4>Category</h4>
+        <div class="filter-options" id="categoryFilters"></div>
+      </div>
+
+      <div class="filter-group">
+        <h4>Brand</h4>
+        <div class="filter-options" id="brandFilters"></div>
+      </div>
+
+      <div class="filter-group">
+        <h4>Price Range</h4>
+        <div class="price-range">
+          <input type="number" id="minPrice" placeholder="Min $" min="0" />
+          <span>–</span>
+          <input type="number" id="maxPrice" placeholder="Max $" min="0" />
+        </div>
+        <button class="apply-price-btn" onclick="applyPriceFilter()">Apply</button>
+      </div>
+
+      <div class="filter-group">
+        <h4>Min Rating</h4>
+        <div class="rating-filter">
+          <input type="range" id="minRating" min="0" max="5" step="0.5" value="0"
+                 oninput="updateRatingLabel(this.value)" onchange="applyFilters()" />
+          <span id="ratingLabel">Any</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ─── MAIN CONTENT ─── -->
+    <main class="products-main">
+      <div class="products-toolbar">
+        <p class="result-count" id="resultCount">Loading...</p>
+        <div class="sort-wrap">
+          <label for="sortSelect">Sort by:</label>
+          <select id="sortSelect" onchange="applyFilters()">
+            <option value="default">Default</option>
+            <option value="price_asc">Price: Low to High</option>
+            <option value="price_desc">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
+            <option value="name">Name A–Z</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="products-grid" id="productsGrid">
+        <div class="loading-spinner"><i class="fas fa-spinner fa-spin"></i> Loading...</div>
+      </div>
+    </main>
+  </div>
+
+  <!-- PRODUCT DETAIL MODAL -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <h3><i class="fas fa-running"></i> SportZone</h3>
+        <p>Your one-stop destination for all sports gear.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="cart.html">Cart</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 SportZone. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/cart.js"></script>
+  <script src="js/products.js"></script>
+</body>
+</html>

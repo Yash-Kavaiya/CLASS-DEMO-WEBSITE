@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SportZone – Your Ultimate Sports Store</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ═══════════════ NAVBAR ═══════════════ -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <i class="fas fa-running"></i> SportZone
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html">
+          <i class="fas fa-shopping-cart"></i>
+          Cart <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+      </div>
+      <div class="nav-search">
+        <input type="text" id="navSearch" placeholder="Search products..." />
+        <button onclick="handleNavSearch()"><i class="fas fa-search"></i></button>
+      </div>
+      <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart <span class="cart-badge" id="cartBadgeMobile">0</span></a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-tag">New Season 2026</span>
+      <h1>Gear Up.<br/>Play Harder.</h1>
+      <p>Premium sports equipment, footwear, and apparel for every athlete — from beginner to pro.</p>
+      <div class="hero-buttons">
+        <a href="products.html" class="btn btn-primary">Shop Now <i class="fas fa-arrow-right"></i></a>
+        <a href="#featured" class="btn btn-outline">Featured Picks</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="hero-img-wrap">
+        <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?w=600&h=600&fit=crop" alt="Sport hero" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ STATS ═══════════════ -->
+  <section class="stats-bar">
+    <div class="stat-item">
+      <span class="stat-num" id="statProducts">–</span>
+      <span class="stat-label">Products</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" id="statCategories">–</span>
+      <span class="stat-label">Categories</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" id="statBrands">–</span>
+      <span class="stat-label">Top Brands</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" id="statRating">–</span>
+      <span class="stat-label">Avg Rating ★</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════ CATEGORIES ═══════════════ -->
+  <section class="section categories-section">
+    <h2 class="section-title">Shop by Category</h2>
+    <div class="categories-grid" id="categoriesGrid">
+      <!-- JS rendered -->
+    </div>
+  </section>
+
+  <!-- ═══════════════ FEATURED PRODUCTS ═══════════════ -->
+  <section class="section" id="featured">
+    <div class="section-header">
+      <h2 class="section-title">Featured Products</h2>
+      <a href="products.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="products-grid" id="featuredGrid">
+      <div class="loading-spinner"><i class="fas fa-spinner fa-spin"></i> Loading...</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ BANNER ═══════════════ -->
+  <section class="promo-banner">
+    <div class="promo-content">
+      <h2>Summer Sale – Up to 30% Off!</h2>
+      <p>Exclusive deals on top brands. Limited time only.</p>
+      <a href="products.html" class="btn btn-primary">Explore Deals</a>
+    </div>
+  </section>
+
+  <!-- ═══════════════ TOAST ═══════════════ -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <h3><i class="fas fa-running"></i> SportZone</h3>
+        <p>Your one-stop destination for all sports gear and equipment.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="cart.html">Cart</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="products.html?category=Running">Running</a></li>
+          <li><a href="products.html?category=Basketball">Basketball</a></li>
+          <li><a href="products.html?category=Football">Football</a></li>
+          <li><a href="products.html?category=Tennis">Tennis</a></li>
+          <li><a href="products.html?category=Gym">Gym</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p><i class="fas fa-envelope"></i> support@sportzone.com</p>
+        <p><i class="fas fa-phone"></i> +1 (800) 123-4567</p>
+        <p><i class="fas fa-map-marker-alt"></i> 123 Sports Ave, CA</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 SportZone. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
